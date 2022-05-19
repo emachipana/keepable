@@ -1,6 +1,7 @@
 @import url(layouts/structure.css);
 @import url(layouts/typography.css);
 @import url(layouts/reset.css);
+@import url(pages/header.css);
 
 * {
     padding: 0;
