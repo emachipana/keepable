@@ -1,8 +1,10 @@
-@import url(layouts/structure.css);
-@import url(layouts/typography.css);
-@import url(layouts/reset.css);
-@import url(pages/header.css);
-@import url(pages/home.css);
+@import url(assets/structure.css);
+@import url(assets/typography.css);
+@import url(assets/reset.css);
+@import url(components/header.css);
+@import url(components/home.css);
+@import url(components/notes.css);
+@import url(assets/utils.css);
 
 * {
     padding: 0;
