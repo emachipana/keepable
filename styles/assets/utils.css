@@ -1,3 +1,4 @@
 .note-icon-filter {
     filter: invert(65%) sepia(4%) saturate(180%) hue-rotate(177deg) brightness(170%) contrast(98%);
+    background-color: rgba(84, 83, 83, 0.581);
 }
