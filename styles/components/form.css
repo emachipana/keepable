@@ -8,6 +8,7 @@ form {
   height: 150px auto;
   padding: 20px;
   background-color: white;
+  position: relative;
 }
 
 form input[type="text"],
