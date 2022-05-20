@@ -9,6 +9,7 @@
   justify-content: space-between;
   padding: 20px;
   text-align: justify;
+  position: relative;
 }
 
 .note-content {
@@ -41,4 +42,10 @@
 
 .note-icons img {
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.palette-icon {
+    background-color: rgba(255, 255, 255, 0.5);
 }

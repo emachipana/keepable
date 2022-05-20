@@ -1,0 +1,75 @@
+.note-palette {
+    background-color: white;
+    list-style: none;
+    grid-template-columns: repeat(5, 25px);
+    grid-gap: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    align-items: center;
+    justify-items: center;
+    max-width: 155px;
+    max-height: 65px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    bottom: 60px;
+    left: -42px;
+    display: none;
+}
+
+.show-palette {
+    display: grid;
+}
+
+.palette-selected {
+    background-color: #d0c9c9;
+    filter: invert(100%) sepia(90%) saturate(10%) hue-rotate(160deg) brightness(200%) contrast(100%);
+}
+
+.note-palette li {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.white {
+    background-color: white;
+    box-shadow: 0px 0px 2px;
+}
+
+.color2 {
+    background-color: #F28B82;
+}
+
+.color3 {
+    background-color: #FBBC04;
+}
+
+.color4 {
+    background-color: #FFF475;
+}
+
+.color5 {
+    background-color: #CCFF90;
+}
+
+.color6 {
+    background-color: #A7FFEB;
+}
+
+.color7 {
+    background-color: #CBF0F8;
+}
+
+.color8 {
+    background-color: #AECBFA;
+}
+
+.color9 {
+    background-color: #D7AEFB;
+}
+
+.color10 {
+    background-color: #FDCFE8;
+}
+
