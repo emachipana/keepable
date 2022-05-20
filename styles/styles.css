@@ -5,6 +5,7 @@
 @import url(components/home.css);
 @import url(components/notes.css);
 @import url(assets/utils.css);
+@import url(components/palette.css);
 
 * {
     padding: 0;
