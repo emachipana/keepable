@@ -1,0 +1,33 @@
+.border {
+  border: 2px solid red;
+}
+
+form {
+  margin: 1.5rem auto;
+  max-width: 600px;
+  height: 150px auto;
+  padding: 20px;
+  background-color: white;
+}
+
+form input[type="text"],
+textarea {
+  display: block;
+  border: none;
+  outline: none;
+}
+
+form textarea {
+  width: 100%;
+}
+
+
+.buttons-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+form button {
+  border: none;
+  background-color: white;
+}
