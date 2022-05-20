@@ -1,0 +1,44 @@
+.note {
+  width: 260px;
+  height: 260px;
+  background-color: #FBBC04;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: justify;
+}
+
+.note-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: black;
+}
+
+.note-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: black;
+}
+
+.note-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+}
+
+.note-icons img {
+    cursor: pointer;
+}
