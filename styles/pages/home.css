@@ -1,14 +1,3 @@
-.aside-section {
-    border-radius: 0px 25px 25px 0px;
-    padding: 1rem;
-    width: 100%;
-    margin: 1rem 0;
-}
-
-.selected {
-    background-color: #999B9E;
-}
-
 .aside-icon {
     display: inline-block;
     max-width: 20px;
@@ -16,9 +5,13 @@
 }
 
 .aside-link {
+    border-radius: 0px 25px 25px 0px;
+    padding: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin: 1rem 0;
+    text-decoration: none;
 }
 
 .aside-link span {
@@ -28,4 +21,12 @@
     font-family: var(--font-primary);
     font-weight: 400;
     letter-spacing: 0.25px;
+}
+
+.container-aside .aside-link:is(:link, :active, :visited) {
+    background-color: transparent;
+}
+
+.aside-link:is(:link, :active, :visited).selected {
+    background-color: #999B9E;
 }
