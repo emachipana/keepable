@@ -47,6 +47,7 @@ function createNote(note) {
     notePalette.addEventListener("click", (event) => {
         const color = `${event.target.getAttribute("data-color")}`;
         note.color = color;
+        localStorage.setItem("notes", JSON.stringify(notes));
         renderNotes(notes);
     })
     
