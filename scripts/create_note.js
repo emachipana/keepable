@@ -1,17 +1,3 @@
-const initialNotes = [
-    {
-        title: "Task 1",
-        content: "500",
-        color: "#FFFFFF"
-    },
-    {
-        title: "Task 2",
-        content: "200",
-        color: "#FFFFFF"
-    }
-];
-
-
 function createNote(note) {
 
     // Create elements
@@ -61,19 +47,10 @@ function createNote(note) {
     notePalette.addEventListener("click", (event) => {
         const color = `${event.target.getAttribute("data-color")}`;
         note.color = color;
-        renderNotes(initialNotes);
+        renderNotes(notes);
     })
     
     return divNote
-};
-
-function addIconNote(className,src,alt) {
-    const iconImg = new Image(25, 25);
-    iconImg.src = src;
-    iconImg.alt= alt;
-    iconImg.classList.add(className);
-
-    return iconImg
 };
 
 function renderNotes(notes) {
@@ -85,4 +62,4 @@ function renderNotes(notes) {
     });
 };
 
-renderNotes(initialNotes);
+renderNotes(notes);

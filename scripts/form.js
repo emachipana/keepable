@@ -24,6 +24,7 @@ function createForm() {
     <li data-color="#FDCFE8" class="FDCFE8"></li>`;
 
   // setup elements
+  form.classList.add("js-form");
   inputText.classList.add("title_input");
   inputTextArea.setAttribute("id", "text-body");
   divButton.classList.add("buttons-input");
@@ -61,6 +62,15 @@ function createForm() {
   return form;
 
 }
+
+function addIconNote(className,src,alt) {
+  const iconImg = new Image(25, 25);
+  iconImg.src = src;
+  iconImg.alt= alt;
+  iconImg.classList.add(className);
+
+  return iconImg
+};
 
 function renderForm() {
   const containerForm = document.querySelector(".container-form");
