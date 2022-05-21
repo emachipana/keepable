@@ -1,4 +1,4 @@
-function createNote(note, groupNotes, trashNotes = trashGroupNotes) {
+function createNote(note, groupNotes, type, trashNotes = trashGroupNotes) {
 
     // Create elements
     const divNote = document.createElement("div");;
@@ -6,9 +6,15 @@ function createNote(note, groupNotes, trashNotes = trashGroupNotes) {
     const noteTitle = document.createElement("h2");
     const noteText = document.createElement("p");
     const noteIcons = document.createElement("div");
-    const paletteIcon = addPaletteIcon(note, groupNotes);
-    const trashIcon = addTrashIconIndex(note, trashNotes, groupNotes);
-    
+    let paletteIcon = null;
+    let trashIcon = null;
+    if (type == "notes") {
+        paletteIcon = addPaletteIcon(note, groupNotes);
+        trashIcon = addTrashIconIndex(note, trashNotes, groupNotes);
+    } else if (type == "trash") {
+        paletteIcon = addRecoverIcon();
+        trashIcon = addTrashIcon();
+    }
     // Setup elements
     noteIcons.classList.add("note-icons");
     noteText.classList.add("note-text");
@@ -21,13 +27,14 @@ function createNote(note, groupNotes, trashNotes = trashGroupNotes) {
 
     // Build template
     noteIcons.append(paletteIcon[0], trashIcon);
+    
     noteContent.append(noteTitle, noteText);
     divNote.append(noteContent,noteIcons,paletteIcon[1]);
 
     return divNote
 };
 
-function renderNotes(notes) {
+function renderNotes(notes, type) {
     const containerNotes= document.querySelector(".js-container-notes");
     containerNotes.innerHTML = "";
     if (notes.length < 1) {
@@ -37,7 +44,7 @@ function renderNotes(notes) {
         containerNotes.append(textEmpty);
     }else {
         notes.forEach( note => {
-            const noteElement = createNote(note, notes);
+            const noteElement = createNote(note, notes, type);
             containerNotes.prepend(noteElement);
         });
     }
