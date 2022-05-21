@@ -27,7 +27,9 @@ function createForm() {
   divInput.classList.add("input-container")
   inputTextArea.setAttribute("id", "text-body");
   inputText.placeholder = "Title";
+  inputText.required = "true";
   inputTextArea.name = "textArea";
+  inputTextArea.required = "true";
   inputText.name = "textTitle";
   inputTextArea.placeholder = "Take a note";
   button.classList.add("button-form");
@@ -54,8 +56,7 @@ function createForm() {
   ulIcons.addEventListener("click", (event) => {
     const color = `${event.target.getAttribute("data-color")}`;
     texthidden.value = color;
-
-    
+    form.style.backgroundColor = color;
   })
   return form;
 
