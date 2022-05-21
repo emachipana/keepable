@@ -75,7 +75,6 @@ function addIconNote(className,src,alt) {
 
 function renderForm() {
   const containerForm = document.querySelector(".container-form");
-  console.log(containerForm);
 
   containerForm.innerHTML = "";
 
