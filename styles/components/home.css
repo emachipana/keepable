@@ -36,4 +36,17 @@
     grid-template-columns: repeat( auto-fill, minmax(220px, 1fr) );
     padding: 1rem;
     grid-gap: 20px;
+    position: relative;
+}
+
+.text-empty {
+    color: white;
+    position: absolute;
+    right: 35%;
+    left: 35%;
+    font-weight: 700;
+    font-size: 36px;
+    font-family: var(--font-primary);
+    line-height: 48px;
+    letter-spacing: 0.25px;
 }
