@@ -1,4 +1,4 @@
-function createNote(note) {
+function createNote(note, groupNotes, trashNotes = trashGroupNotes) {
 
     // Create elements
     const divNote = document.createElement("div");;
@@ -47,17 +47,17 @@ function createNote(note) {
     notePalette.addEventListener("click", (event) => {
         const color = `${event.target.getAttribute("data-color")}`;
         note.color = color;
-        localStorage.setItem("notes", JSON.stringify(notes));
-        renderNotes(notes);
+        localStorage.setItem("notes", JSON.stringify(groupNotes));
+        renderNotes(groupNotes);
     })
     
-    trashIcon.addEventListener("click", (event) => {
-        const index = notes.indexOf(note);
-        trashGroupNotes.push(notes[index]);
-        notes.splice(index,1);
-        localStorage.setItem("notes", JSON.stringify(notes));
-        localStorage.setItem("trash", JSON.stringify(trashGroupNotes));
-        renderNotes(notes);
+    trashIcon.addEventListener("click", () => {
+        const index = groupNotes.indexOf(note);
+        trashGroupNotes.push(groupNotes[index]);
+        groupNotes.splice(index,1);
+        localStorage.setItem("notes", JSON.stringify(groupNotes));
+        localStorage.setItem("trash", JSON.stringify(trashNotes)); // pending
+        renderNotes(groupNotes);
     })
 
     return divNote
@@ -73,11 +73,8 @@ function renderNotes(notes) {
         containerNotes.append(textEmpty);
     }else {
         notes.forEach( note => {
-            const noteElement = createNote(note);
+            const noteElement = createNote(note, notes);
             containerNotes.prepend(noteElement);
         });
     }
 };
-
-
-renderNotes(notes);
