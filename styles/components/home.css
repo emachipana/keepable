@@ -30,3 +30,10 @@
 .aside-link:is(:link, :active, :visited).selected {
     background-color: #999B9E;
 }
+
+.js-container-notes {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(220px, 1fr) );
+    padding: 1rem;
+    grid-gap: 20px;
+}
