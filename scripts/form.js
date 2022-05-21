@@ -9,6 +9,7 @@ function createForm() {
   const paletteIcon = addIconNote("palette-icon","images/paleta.png","palette-icon");
   const divImages = document.createElement("div");
   const texthidden = document.createElement("input");
+
   ulIcons.innerHTML = 
     `<li data-color="#FFFFFF" class="FFFFFF"></li>
     <li data-color="#F28B82" class="F28B82"></li>
@@ -74,6 +75,7 @@ function addIconNote(className,src,alt) {
 
 function renderForm() {
   const containerForm = document.querySelector(".container-form");
+  console.log(containerForm);
 
   containerForm.innerHTML = "";
 
