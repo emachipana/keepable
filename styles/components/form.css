@@ -21,6 +21,7 @@ form {
   letter-spacing: 0.25px;
   color: black;
   border: none;
+  background-color: transparent;
 }
 
 form input[type="text"],
@@ -35,6 +36,7 @@ textarea {
   letter-spacing: 0.25px;
   color: black;
   width: 100%;
+  background-color: transparent;
 }
 
 .input-container {
