@@ -57,10 +57,17 @@ function createNote(note) {
 function renderNotes(notes) {
     const containerNotes= document.querySelector(".js-container-notes");
     containerNotes.innerHTML = "";
-    notes.forEach( note => {
-        const noteElement = createNote(note);
-        containerNotes.prepend(noteElement);
-    });
+    if (notes.length < 1) {
+        const textEmpty = document.createElement("h1");
+        textEmpty.textContent = "No notes to keep!";
+        textEmpty.classList.add("text-empty");
+        containerNotes.append(textEmpty);
+    }else {
+        notes.forEach( note => {
+            const noteElement = createNote(note);
+            containerNotes.prepend(noteElement);
+        });
+    }
 };
 
 renderNotes(notes);
