@@ -10,5 +10,6 @@ form.addEventListener("submit",(event) => {
     notes.push(dataNote);
     localStorage.setItem("notes", JSON.stringify(notes));
     event.target.style.backgroundColor = "#FFFFFF";
+    event.target.colorText.value = "#FFFFFF";
     renderNotes(notes);
 }) 

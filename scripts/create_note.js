@@ -51,6 +51,15 @@ function createNote(note) {
         renderNotes(notes);
     })
     
+    trashIcon.addEventListener("click", (event) => {
+        const index = notes.indexOf(note);
+        trashGroupNotes.push(notes[index]);
+        notes.splice(index,1);
+        localStorage.setItem("notes", JSON.stringify(notes));
+        localStorage.setItem("trash", JSON.stringify(trashGroupNotes));
+        renderNotes(notes);
+    })
+
     return divNote
 };
 
@@ -69,5 +78,6 @@ function renderNotes(notes) {
         });
     }
 };
+
 
 renderNotes(notes);
