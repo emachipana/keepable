@@ -7,8 +7,8 @@ function createNote(note, groupNotes, trashNotes = trashGroupNotes) {
     const noteText = document.createElement("p");
     const noteIcons = document.createElement("div");
     const paletteIcon = addPaletteIcon(note, groupNotes);
-    const trashIcon = addIconNote("note-icon-filter","images/trash.png","trash-icon");
-
+    const trashIcon = addTrashIconIndex(note, trashNotes, groupNotes);
+    
     // Setup elements
     noteIcons.classList.add("note-icons");
     noteText.classList.add("note-text");
@@ -23,16 +23,6 @@ function createNote(note, groupNotes, trashNotes = trashGroupNotes) {
     noteIcons.append(paletteIcon[0], trashIcon);
     noteContent.append(noteTitle, noteText);
     divNote.append(noteContent,noteIcons,paletteIcon[1]);
-
-    
-    trashIcon.addEventListener("click", () => {
-        const index = groupNotes.indexOf(note);
-        trashGroupNotes.push(groupNotes[index]);
-        groupNotes.splice(index,1);
-        localStorage.setItem("notes", JSON.stringify(groupNotes));
-        localStorage.setItem("trash", JSON.stringify(trashNotes));
-        renderNotes(groupNotes);
-    })
 
     return divNote
 };
