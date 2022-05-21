@@ -1,4 +1,4 @@
-function createNote(note, groupNotes, type, trashNotes = trashGroupNotes) {
+function createNote(note, groupNotes, type, trashNotes) {
 
     // Create elements
     const divNote = document.createElement("div");;
@@ -9,11 +9,15 @@ function createNote(note, groupNotes, type, trashNotes = trashGroupNotes) {
     let paletteIcon = null;
     let trashIcon = null;
     if (type == "notes") {
-        paletteIcon = addPaletteIcon(note, groupNotes);
+        paletteIcon = addPaletteIcon(note, groupNotes, trashNotes);
         trashIcon = addTrashIconIndex(note, trashNotes, groupNotes);
+        noteIcons.append(paletteIcon[0], trashIcon);
+        divNote.append(noteContent,noteIcons,paletteIcon[1]);
     } else if (type == "trash") {
-        paletteIcon = addRecoverIcon();
-        trashIcon = addTrashIcon();
+        recoverIcon = addRecoverIcon(note,groupNotes,trashNotes);
+        trashIcon = addTrashIcon(note,groupNotes,trashNotes);
+        noteIcons.append(recoverIcon, trashIcon);
+        divNote.append(noteContent,noteIcons);
     }
     // Setup elements
     noteIcons.classList.add("note-icons");
@@ -26,15 +30,13 @@ function createNote(note, groupNotes, type, trashNotes = trashGroupNotes) {
     divNote.style.backgroundColor = note.color;
 
     // Build template
-    noteIcons.append(paletteIcon[0], trashIcon);
     
     noteContent.append(noteTitle, noteText);
-    divNote.append(noteContent,noteIcons,paletteIcon[1]);
 
     return divNote
 };
 
-function renderNotes(notes, type) {
+function renderNotes(notes, type, trashNotes) {
     const containerNotes= document.querySelector(".js-container-notes");
     containerNotes.innerHTML = "";
     if (notes.length < 1) {
@@ -44,7 +46,7 @@ function renderNotes(notes, type) {
         containerNotes.append(textEmpty);
     }else {
         notes.forEach( note => {
-            const noteElement = createNote(note, notes, type);
+            const noteElement = createNote(note,notes, type, trashNotes);
             containerNotes.prepend(noteElement);
         });
     }

@@ -7,7 +7,7 @@ function addIconNote(className,src,alt) {
   return iconImg
 };
 
-function addPaletteIcon(note, groupNotes) {
+function addPaletteIcon(note, groupNotes, trashNotes) {
   const paletteIcon = addIconNote("palette-icon", "images/paleta.png", "palette-con")
   const notePalette = document.createElement("ul");
   notePalette.innerHTML = 
@@ -33,7 +33,7 @@ function addPaletteIcon(note, groupNotes) {
       const color = `${event.target.getAttribute("data-color")}`;
       note.color = color;
       localStorage.setItem("notes", JSON.stringify(groupNotes));
-      renderNotes(groupNotes, "notes");
+      renderNotes(groupNotes, "notes", trashNotes);
   })
   
 
@@ -50,18 +50,34 @@ function addTrashIconIndex(note, trashNotes, groupNotes) {
     groupNotes.splice(index,1);
     localStorage.setItem("notes", JSON.stringify(groupNotes));
     localStorage.setItem("trash", JSON.stringify(trashNotes));
-    renderNotes(groupNotes, "notes");
+    renderNotes(groupNotes, "notes", trashNotes);
 })
   return trashIcon
 }
 
 
-function addRecoverIcon() {
-
+function addRecoverIcon(note, trashNotes, groupNotes) {
+  const recoverIcon = addIconNote("note-icon-filter", "images/restore.png", "restore-icon");
+  recoverIcon.addEventListener( "click", ()=>{
+    const index = trashNotes.indexOf(note);
+    groupNotes.push(trashNotes[index]);
+    trashNotes.splice(index,1);
+    localStorage.setItem("notes", JSON.stringify(groupNotes));
+    localStorage.setItem("trash", JSON.stringify(trashNotes));
+    renderNotes( trashNotes, "trash",groupNotes );
+  });
+  return recoverIcon
 }
 
-function addTrashIcon() {
-  
+function addTrashIcon(note, trashNotes, groupNotes) {
+  const deleteIcon = addIconNote("note-icon-filter","images/trash.png","trash-icon");
+  deleteIcon.addEventListener("click", ()=>{
+    const index = trashNotes.indexOf(note);
+    trashNotes.splice(index,1);
+    localStorage.setItem("trash", JSON.stringify(trashNotes));
+    renderNotes( trashNotes, "trash",groupNotes );
+  });
+  return deleteIcon
 }
 
 

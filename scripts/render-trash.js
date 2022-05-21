@@ -1,1 +1,1 @@
-renderNotes(trashGroupNotes, "trash");
+renderNotes(trashGroupNotes , "trash", notes);
