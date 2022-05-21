@@ -1,4 +1,3 @@
-
 function addIconNote(className,src,alt) {
   const iconImg = new Image(34, 34);
   iconImg.src = src;
@@ -34,7 +33,7 @@ function addPaletteIcon(note, groupNotes) {
       const color = `${event.target.getAttribute("data-color")}`;
       note.color = color;
       localStorage.setItem("notes", JSON.stringify(groupNotes));
-      renderNotes(groupNotes);
+      renderNotes(groupNotes, "notes");
   })
   
 
@@ -51,14 +50,14 @@ function addTrashIconIndex(note, trashNotes, groupNotes) {
     groupNotes.splice(index,1);
     localStorage.setItem("notes", JSON.stringify(groupNotes));
     localStorage.setItem("trash", JSON.stringify(trashNotes));
-    renderNotes(groupNotes);
+    renderNotes(groupNotes, "notes");
 })
   return trashIcon
 }
 
 
 function addRecoverIcon() {
-  
+
 }
 
 function addTrashIcon() {
