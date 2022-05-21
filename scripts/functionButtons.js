@@ -9,9 +9,7 @@ function addIconNote(className,src,alt) {
 };
 
 function addPaletteIcon(note, groupNotes) {
-  const iconImg = new Image(34, 34);
-  iconImg.src = "images/paleta.png";
-  iconImg.classList.add("palette-icon");
+  const paletteIcon = addIconNote("palette-icon", "images/paleta.png", "palette-con")
   const notePalette = document.createElement("ul");
   notePalette.innerHTML = 
     `<li data-color="#FFFFFF" class="FFFFFF"></li>
@@ -27,7 +25,7 @@ function addPaletteIcon(note, groupNotes) {
   // setup
     notePalette.classList.add("note-palette");
 
-    iconImg.addEventListener("click", (event) => {
+    paletteIcon.addEventListener("click", (event) => {
       notePalette.classList.toggle("show-palette");
       event.target.classList.toggle("palette-selected");
   })
@@ -40,12 +38,22 @@ function addPaletteIcon(note, groupNotes) {
   })
   
 
-return [iconImg, notePalette]
+return [paletteIcon, notePalette]
 
 }
 
-function addTrashIconIndex() {
+function addTrashIconIndex(note, trashNotes, groupNotes) {
+  const trashIcon = addIconNote("note-icon-filter","images/trash.png","trash-icon");
 
+  trashIcon.addEventListener("click", () => {
+    const index = groupNotes.indexOf(note);
+    trashNotes.push(groupNotes[index]);
+    groupNotes.splice(index,1);
+    localStorage.setItem("notes", JSON.stringify(groupNotes));
+    localStorage.setItem("trash", JSON.stringify(trashNotes));
+    renderNotes(groupNotes);
+})
+  return trashIcon
 }
 
 
