@@ -9,26 +9,52 @@ form {
   padding: 20px;
   background-color: white;
   position: relative;
+  border-radius: 8px;
+}
+
+.title_input {
+  outline: none;
+  font-family: var(--font-primary);
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  color: black;
+  border: none;
 }
 
 form input[type="text"],
 textarea {
+  font-family: var(--font-primary);
   display: block;
   border: none;
   outline: none;
-}
-
-form textarea {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  color: black;
   width: 100%;
 }
 
-
-.buttons-input {
+.input-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
 }
 
-form button {
+.button-form {
   border: none;
-  background-color: white;
+  background-color: transparent;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+.icons--form {
+  display: flex;
+  justify-content: space-between;
 }
