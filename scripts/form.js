@@ -4,11 +4,9 @@ function createForm() {
   const divInput = document.createElement("div");
   const inputText = document.createElement("input");
   const inputTextArea = document.createElement("textarea");
-  const divButton = document.createElement("buttons-input");
   const button = document.createElement("button");
   const ulIcons = document.createElement("ul");
   const paletteIcon = addIconNote("palette-icon","images/paleta.png","palette-icon");
-  const trashIcon = addIconNote("note-icon-filter","images/trash.png","trash-icon");
   const divImages = document.createElement("div");
   const texthidden = document.createElement("input");
   ulIcons.innerHTML = 
@@ -26,25 +24,25 @@ function createForm() {
   // setup elements
   form.classList.add("js-form");
   inputText.classList.add("title_input");
+  divInput.classList.add("input-container")
   inputTextArea.setAttribute("id", "text-body");
-  divButton.classList.add("buttons-input");
   inputText.placeholder = "Title";
   inputTextArea.name = "textArea";
   inputText.name = "textTitle";
   inputTextArea.placeholder = "Take a note";
+  button.classList.add("button-form");
   button.setAttribute("type", "submit");
-  button.textContent = "Keep it";
+  button.textContent = "Keep it!";
   ulIcons.classList.add("note-palette");
-  divImages.classList.add("note-icons");
+  divImages.classList.add("note-icons", "icons--form");
   texthidden.type = "hidden";
   texthidden.value = "#FFFFFF";
   texthidden.name = "colorText";
 
   // build template
   divInput.append(inputText, inputTextArea, texthidden);
-  divButton.append(button);
-  divImages.append(paletteIcon, trashIcon);
-  form.append(divInput, divButton, divImages, ulIcons);
+  divImages.append(paletteIcon, button);
+  form.append(divInput, divImages, ulIcons);
 
   // event listener
 
@@ -64,7 +62,7 @@ function createForm() {
 }
 
 function addIconNote(className,src,alt) {
-  const iconImg = new Image(25, 25);
+  const iconImg = new Image(34, 34);
   iconImg.src = src;
   iconImg.alt= alt;
   iconImg.classList.add(className);
