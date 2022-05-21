@@ -59,7 +59,7 @@ function renderNotes(notes) {
     containerNotes.innerHTML = "";
     notes.forEach( note => {
         const noteElement = createNote(note);
-        containerNotes.append(noteElement);
+        containerNotes.prepend(noteElement);
     });
 };
 
