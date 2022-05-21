@@ -1,1 +1,1 @@
-renderNotes(notes);
+renderNotes(notes, "notes");

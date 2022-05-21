@@ -9,6 +9,7 @@ function createForm() {
   const paletteIcon = addIconNote("palette-icon","images/paleta.png","palette-icon");
   const divImages = document.createElement("div");
   const texthidden = document.createElement("input");
+
   ulIcons.innerHTML = 
     `<li data-color="#FFFFFF" class="FFFFFF"></li>
     <li data-color="#F28B82" class="F28B82"></li>
