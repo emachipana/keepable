@@ -15,7 +15,7 @@ function createNote(note, groupNotes, type, trashNotes) {
         divNote.append(noteContent,noteIcons,paletteIcon[1]);
     } else if (type == "trash") {
         recoverIcon = addRecoverIcon(note,groupNotes,trashNotes);
-        trashIcon = addTrashIcon();
+        trashIcon = addTrashIcon(note,groupNotes,trashNotes);
         noteIcons.append(recoverIcon, trashIcon);
         divNote.append(noteContent,noteIcons);
     }

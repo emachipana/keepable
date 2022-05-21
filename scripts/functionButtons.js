@@ -68,8 +68,16 @@ function addRecoverIcon(note, trashNotes, groupNotes) {
   });
   return recoverIcon
 }
-function addTrashIcon() {
-  
+
+function addTrashIcon(note, trashNotes, groupNotes) {
+  const deleteIcon = addIconNote("note-icon-filter","images/trash.png","trash-icon");
+  deleteIcon.addEventListener("click", ()=>{
+    const index = trashNotes.indexOf(note);
+    trashNotes.splice(index,1);
+    localStorage.setItem("trash", JSON.stringify(trashNotes));
+    renderNotes( trashNotes, "trash",groupNotes );
+  });
+  return deleteIcon
 }
 
 
