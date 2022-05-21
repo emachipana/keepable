@@ -57,6 +57,7 @@ function createForm() {
     const color = `${event.target.getAttribute("data-color")}`;
     texthidden.value = color;
     form.style.backgroundColor = color;
+    ulIcons.classList.toggle("show-palette");
   })
   return form;
 
